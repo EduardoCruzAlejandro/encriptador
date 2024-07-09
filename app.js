@@ -86,10 +86,10 @@ function asignarTextoElemento(elemento, texto) {
     elementoHTML.innerHTML = texto; //se imprime el texto en elemento seleccionado
     return; //regresamos el resultado
 }
-
+//funcion copiar del boton copy
 function copiar() { 
-    let text=mensajeDescifrado;
-    navigator.clipboard.writeText(text).then(() => {
-        alert('Texto copiado al portapapeles');
+    let text=mensajeDescifrado; //camputaramos el mensaje final 
+    navigator.clipboard.writeText(text).then(() => {  //usamos el API clipboard y usamos una promise 
+        alert('Texto copiado al portapapeles'); //mandamos un alert que se ha copiado en el porta papeles
     })
 }
