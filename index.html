@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+</head>
+<link rel="stylesheet" href="styles/style.css">
+<body>
+   <script src="app.js"></script>
+
+    <header class="header">
+        <img class="imgalura" src="assets/Logo.png"/>
+    </header>
+    <main class="contenedor">
+
+        <section class="contenido_mensaje">
+            <textarea id="msn" class="contenido_mensaje_recibido" placeholder="Ingrese el mensaje de texto aqui"></textarea>
+            <p class="subtitulo">solo letras minusculas y sin acentos</p>
+            
+            <div class="buttons">
+                <button onclick="encriptarMensaje();" class="container__boton">Encriptar</button>
+                <button onclick="desencriptarMensaje();" class="container__boton_in">Desencriptar</button>
+            </div>
+
+        </section>
+
+
+        <div class="contenedor_resultado">
+                <img class="img" src="assets/Muñeco.png" id="imagen">
+                <textarea id="msnmod" class="contenido_mensaje_modificado" placeholder="Ningun mensaje fue encontrado" disabled="disabled"></textarea>
+                <p class="parrafo" id="parrafo"> ingrese el texto que desees encriptar o desencriptar</p>
+                <div class="button_copiar">
+                    <button id="copy" onclick="copiar();" class="contenido_mensaje_modificado_copiar">Copiar</button>
+                </div>
+        </div>
+     
+
+        
+    </main>
+    <footer class="footer">
+        <p>Desarrolado por Eduardo de la Cruz Alejandro</p>
+    </footer>
+</body>
+</html>
