@@ -4,11 +4,10 @@ La letra "e" es convertida para "enter"
 La letra "i" es convertida para "imes"
 La letra "a" es convertida para "ai"
 La letra "o" es convertida para "ober"
-La letra "u" es convertida para "ufat"*/
-
+La letra "u" es convertida para "ufat"
+*/
 
 //creamos variables de encriptado
-//let mensaje= prompt("Escriba el mensaje");
 let mensajeEncrip=[];
 let mensaje;
 let mensajeDescifrado;
@@ -17,6 +16,7 @@ let mensajeDescifrado;
 function encriptarMensaje(){
     
     mensaje =document.getElementById('msn').value; //capturamos el texto
+
     if(mensaje !=''){ //evaluamos si hay un texto para encriptar
 
         for (let j = 0; j <= mensaje.length; j++) {  //remplazamos las llaves mediante comparacion
@@ -38,56 +38,58 @@ function encriptarMensaje(){
             else{
                 mensajeEncrip[j]=mensaje[j];
             }
-            //console.log(mensaje[j]);
+            
         }
-        mensajeDescifrado= mensajeEncrip.join(''); //imprimimos el array sin comas
-        asignarTextoElemento('#msnmod',mensajeDescifrado); //llamos a funcion parar imprimir el texto resultante
-        document.getElementById('imagen').style.display= "none"; //ocultar imagen
-        document.getElementById('parrafo').style.display= "none"; //ocultar subtitulo
+        mensajeDescifrado= mensajeEncrip.join(''); //convertimos el array sin comas
+        asignarTextoElemento('#msnmod',mensajeDescifrado); //llamos a una funcion para imprimir el texto resultante
+        document.getElementById('imagen').style.display= "none"; //ocultar la imagen
+        document.getElementById('parrafo').style.display= "none"; //ocultar los subtitulo
         document.getElementById('copy').style.display = 'flex'; // Mostrar el botón de copy
     }
 
     else{ //si no lo hay, mandamos un alert
-        alert("Por favor, ingrese el mensaje"); 
+        alert("Por favor, ingrese un mensaje"); 
     }
 }
 
 //funcion para desencriptar mensaje de texto
 function desencriptarMensaje(){
     mensaje=document.getElementById('msn').value; //capturar texto
-    if(mensaje !=''){
+    if(mensaje !=''){//comparar si hay texto
 
-        mensajeDescifrado = descifrarMensaje(mensaje);
+        mensajeDescifrado = descifrarMensaje(mensaje); //llamamos a la funcion para descifrar el mensaje
 
         function descifrarMensaje(mensaje) {
-            mensajeDescifrado =mensaje.replace(/enter/g, "e")
+            mensajeDescifrado =mensaje.replace(/enter/g, "e") //usamos replace para reemplazar las llaves encriptadas a las silabas correspondietntes
                                                     .replace(/imes/g, "i")
                                                     .replace(/ai/g, "a")
                                                     .replace(/ober/g, "o")
                                                     .replace(/ufat/g, "u");
-            return mensajeDescifrado;
+            return mensajeDescifrado; //regresamos el mensaje descifrado
         }
-        document.getElementById('imagen').style.display= "none";
-        document.getElementById('parrafo').style.display= "none";
+
+
+        document.getElementById('imagen').style.display= "none"; //ocultar imagen
+        document.getElementById('parrafo').style.display= "none";//ocultar display
         document.getElementById('copy').style.display = 'flex'; // Mostrar el botón
-        asignarTextoElemento('#msnmod',mensajeDescifrado);
+        asignarTextoElemento('#msnmod',mensajeDescifrado); //llamos a una funcion para imprimir el texto resultante
 
     }
     else{ //si no lo hay, mandamos un alert
-        alert("Por favor, ingrese el mensaje"); 
+        alert("Por favor, ingrese un mensaje"); 
     }
 }
 
+//funcion para asignar textos
 function asignarTextoElemento(elemento, texto) {
-    let elementoHTML = document.querySelector(elemento);
-    elementoHTML.innerHTML = texto;
-    return;
+    let elementoHTML = document.querySelector(elemento); //seleccionamos el elemento donde ira el texto
+    elementoHTML.innerHTML = texto; //se imprime el texto en elemento seleccionado
+    return; //regresamos el resultado
 }
 
-function copiar() {
+function copiar() { 
     let text=mensajeDescifrado;
     navigator.clipboard.writeText(text).then(() => {
         alert('Texto copiado al portapapeles');
     })
-    
 }
