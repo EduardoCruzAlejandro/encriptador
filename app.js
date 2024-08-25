@@ -114,7 +114,7 @@ function copiar() {
 //funcion para excluir mayusculas, acentos y caracteres
 function exclusion(mensaje){
     mensaje=document.getElementById('msn').value; //capturar texto
-    let excluir = /^[a-z]+$/; //inidicamos el margen de a-z en minusculas sin caracteres
+    let excluir = /^[a-z\s]+$/; //inidicamos el margen de a-z en minusculas sin caracteres
     //regresamos la evalucion en un true si el mensaje solo es en minusculas sin caracteres especiales y falsa si hay mayusculas y/o caracteres especiales
     return excluir.test(mensaje); 
 
